@@ -29,7 +29,19 @@ def get_operation(operator):
     display.insert(i, operator)
     i+=length
 
+def factorial():
+    num = int(display.get())
+    try:
+        import math
+        k = math.factorial(num)
+        clear_all()
+        display.insert(0, k)
 
+    except Exception:
+        print("Enter a number that is worthy to be factorialed")
+
+
+    
 def clear_all():
     display.delete(0, END)
 
@@ -79,7 +91,7 @@ Button(root, text="(", command=lambda: get_operation("(")).grid(row=4, column=4)
 Button(root, text="exp", command=lambda: get_operation("**")).grid(row=5, column=4)
 
 Button(root, text="<- UNDO", command=lambda :undo()).grid(row=2, column=5)
-Button(root, text="x!").grid(row=3, column=5)
+Button(root, text="x!", command=lambda :factorial()).grid(row=3, column=5)
 Button(root, text=")", command=lambda: get_operation(")")).grid(row=4, column=5)
 Button(root, text="^2", command=lambda: get_operation("**2")).grid(row=5, column=5)
 
